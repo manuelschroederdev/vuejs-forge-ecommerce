@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+section.main-section + section.main-section {
+  @apply pt-0;
+}
+
+section.main-section:last-child {
+  @apply pb-0;
+}
