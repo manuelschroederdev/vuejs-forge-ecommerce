@@ -1,9 +1,12 @@
 import Client from 'shopify-buy'
 
-const shopifyClient = Client.buildClient({
-  domain: 'demo-store-storyblok.myshopify.com',
-  storefrontAccessToken: 'b49c9c4fb3b46498ed30cf7e4ac3821b',
-})
+const shopifyClient = () => {
+  const runtimeConfig = useRuntimeConfig()
+  return Client.buildClient({
+    domain: 'demo-store-storyblok.myshopify.com',
+    storefrontAccessToken: runtimeConfig.public.shopifyToken,
+  })
+}
 
 export const fetchShopifyProductData = (productID) => {
   const productTitle = ref(null)
@@ -12,7 +15,7 @@ export const fetchShopifyProductData = (productID) => {
   const productAvailability = ref(null)
 
   const fetch = async () => {
-    shopifyClient.product.fetch(productID).then((fetchedProduct) => {
+    shopifyClient().product.fetch(productID).then((fetchedProduct) => {
       productTitle.value = fetchedProduct.title
       productImage.value = fetchedProduct.images[0].src
       productPrice.value = fetchedProduct.variants[0].price
@@ -29,7 +32,7 @@ export const fetchShopifyProductsByCategory = (categoryID) => {
   const products = reactive([])
 
   const fetch = async () => {
-    shopifyClient.collection
+    shopifyClient().collection
       .fetchWithProducts(categoryID, { productsFirst: 10 })
       .then((collection) => {
         collection.products.forEach((product) => {

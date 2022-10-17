@@ -8,4 +8,10 @@ export default defineNuxtConfig({
       },
     },
   },
+  runtimeConfig: {
+    // Keys within public, will be also exposed to the client-side
+    public: {
+      shopifyToken: process.env.SHOPIFY_TOKEN || "shopify_token",
+    }
+  }
 })
