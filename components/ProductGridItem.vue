@@ -11,7 +11,7 @@
           :productAvailability="productAvailability"
         />
       </div>
-      <AddToCartButton v-if="!productAvailability" />
+      <AddToCartButton v-if="productAvailability" />
     </div>
   </div>
 </template>

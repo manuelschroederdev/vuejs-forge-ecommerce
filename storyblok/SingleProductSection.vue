@@ -19,7 +19,7 @@
             :productPrice="productPrice"
             :productAvailability="productAvailability"
           />
-          <AddToCartButton v-if="!productAvailability" />
+          <AddToCartButton v-if="productAvailability" />
         </div>
       </div>
     </div>
