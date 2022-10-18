@@ -27,21 +27,3 @@ export const fetchShopifyProductData = (productID) => {
 
   return { productTitle, productImage, productPrice, productAvailability }
 }
-
-export const fetchShopifyProductsByCategory = (categoryID) => {
-  const products = reactive([])
-
-  const fetch = async () => {
-    shopifyClient().collection
-      .fetchWithProducts(categoryID, { productsFirst: 10 })
-      .then((collection) => {
-        collection.products.forEach((product) => {
-          products.push({ id: product.id })
-        })
-      })
-  }
-
-  fetch()
-
-  return products
-}
