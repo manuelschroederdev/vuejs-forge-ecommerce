@@ -1,6 +1,9 @@
 export default defineNuxtConfig({
   buildModules: ['@nuxtjs/tailwindcss'],
   modules: [['@storyblok/nuxt', { accessToken: process.env.STORYBLOK_TOKEN }]],
+  css: [
+    '@/assets/css/roboto.css',
+  ],
   app: {
     head: {
       bodyAttrs: {
