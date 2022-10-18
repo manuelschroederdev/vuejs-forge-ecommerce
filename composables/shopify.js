@@ -3,7 +3,7 @@ import Client from 'shopify-buy'
 const shopifyClient = () => {
   const runtimeConfig = useRuntimeConfig()
   return Client.buildClient({
-    domain: 'demo-store-storyblok.myshopify.com',
+    domain: 'vue-js-forge-ecommerce-workshop.myshopify.com',
     storefrontAccessToken: runtimeConfig.public.shopifyToken,
   })
 }
