@@ -1,7 +1,7 @@
 <template>
   <section v-editable="blok" class="main-section container py-32">
     <div class="grid lg:grid-cols-2 place-items-center gap-16">
-      <div class="order-last" :class="blok.layout ? '' : 'lg:order-first'">
+      <div class="order-last">
         <h2 class="text-5xl font-bold text-[#50b0ae] mb-6">
           {{ blok.headline }}
         </h2>
